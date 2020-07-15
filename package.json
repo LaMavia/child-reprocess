@@ -1,15 +1,29 @@
 {
   "name": "child-reprocess",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
+    "prepublish": "bsb -clean-world -make-world",
     "clean": "bsb -clean-world"
   },
   "keywords": [
-    "BuckleScript"
+    "BuckleScript",
+    "Reason",
+    "Node",
+    "Child",
+    "Process"
   ],
-  "author": "",
+  "author": "DerivedMate",
+  "description": "ReasonML bindings for Node's child_process modules",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DerivedMate/child-reprocess"
+  },
+  "homepage": "https://github.com/DerivedMate/child-reprocess#child-reprocess",
+  "bugs": {
+    "url": "https://github.com/DerivedMate/child-reprocess/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "bs-platform": "^8.0.3"
