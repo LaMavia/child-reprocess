@@ -19,6 +19,8 @@ module StdStream = {
 
   module Readable = {
     type t;
+
+    // ~ Events ~
     [@bs.send]
     external on_data: (t, [@bs.as "data"] _, buffer => unit) => t = "on";
 
@@ -33,11 +35,15 @@ module StdStream = {
 
     [@bs.send]
     external on_resume: (t, [@bs.as "resume"] _, unit => unit) => t = "on";
+
+    // ~ Methods ~
+    [@bs.send] external write: (t, string) => unit = "write";
   };
 
   module Writeable = {
     type t;
 
+    // ~ Events ~
     [@bs.send]
     external on_close: (t, [@bs.as "close"] _, unit => unit) => t = "on";
 
@@ -53,6 +59,9 @@ module StdStream = {
     [@bs.send]
     external on_unpipe: (t, [@bs.as "unpipe"] _, Readable.t => unit) => t =
       "on";
+
+    // ~ Methods ~
+    [@bs.send] external write: (t, string) => unit = "write";
   };
 
   [@bs.get] external child_stdin: t => Writeable.t = "stdin";
